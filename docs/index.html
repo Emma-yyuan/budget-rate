@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>汇率数据服务</title></head>
+<body style="font-family:sans-serif;max-width:600px;margin:40px auto;padding:0 20px;color:#333;">
+<h2>央行美元/人民币中间价</h2>
+<p>数据接口：<a href="rate.json">rate.json</a></p>
+<p>数据来源：中国外汇交易中心 chinamoney.com.cn · 每天 09:30 北京时间自动更新</p>
+<pre id="out" style="background:#f5f5f5;padding:12px;border-radius:4px;"></pre>
+<script>
+fetch('rate.json').then(r=>r.json()).then(d=>{
+  document.getElementById('out').textContent = JSON.stringify(d, null, 2);
+});
+</script>
+</body></html>
